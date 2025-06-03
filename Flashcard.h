@@ -7,7 +7,7 @@
 class flashCard{
     private:
     FlashCardLinkedNode* deck;
-
+    std::string topic;
 
 
 
