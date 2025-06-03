@@ -6,17 +6,17 @@
 
 class flashCard{
     private:
-    FlashCardLinkedNode* deck;
-    std::string topic;
-
-
-
+    FlashCardLinkedNode* deck = nullptr;
+    std::string name;
+    int size = 0;
     public:
-    
-    
-
-
-
+    flashCard(std::string topic);
+    void addFlashcard(std::string q, std::string a);
+    void removeFlashcard(int index);
+    void editFlashcard(int index);
+    void printDeck();
+    int getSize();
+    FlashCardLinkedNode* getDeck();
 };
 
 

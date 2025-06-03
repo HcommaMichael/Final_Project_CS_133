@@ -62,7 +62,7 @@ void Quiz::startQuiz() {
 		}
 		else {
 			wrong++;
-			std::cout << "Incorrect!" << std::endl << "RIght Answers: " << right << std::endl
+			std::cout << "Incorrect!" << std::endl << "Right Answers: " << right << std::endl
 				<< "Wrong Answers: " << wrong << std::endl;
 		}
 	}
