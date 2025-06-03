@@ -50,12 +50,12 @@ void Quiz::startQuiz() {
 		answerRandomizer(answers);
 		
 		std::cout << "Q: " << nodes[i]->question << std::endl;
-		std::cout << "1. " << answers[1] << std::endl << "2. " << answers[2] << std::endl
-				<< "3. " << answers[3] << std::endl << "4. " << answers[4] << std::endl;
+		std::cout << "1. " << answers[0] << std::endl << "2. " << answers[1] << std::endl
+				<< "3. " << answers[2] << std::endl << "4. " << answers[3] << std::endl;
 
 		std::getline(std::cin, choice);
 
-		if (answers[stoi(choice)] == nodes[i]->answer) {
+		if (answers[stoi(choice) - 1] == nodes[i]->answer) {
 			right++;
 			std::cout << "Correct!" << std::endl << "Right Answers: " << right << std::endl
 				<< "Wrong Answers: " << wrong << std::endl;
