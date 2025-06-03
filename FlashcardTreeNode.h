@@ -4,13 +4,13 @@
 #include <string>
 #include <iostream>
 
-class FlashcardTreeNode{
+class FlashcardNode{
     private:
     std::string question;
     std::string answer;
-    FlashcardTreeNode* next;
+    FlashcardNode* next;
     public:
-    FlashcardTreeNode(std::string q, std::string a);
+    FlashcardNode(std::string q, std::string a);
     std::string getQuestion();
     std::string getAnswer();
 };
