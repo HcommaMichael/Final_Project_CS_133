@@ -8,9 +8,7 @@ class FlashcardTreeNode{
     private:
     std::string question;
     std::string answer;
-    int priority;
-    FlashcardTreeNode* left;
-    FlashcardTreeNode* right;
+    FlashcardTreeNode* next;
     public:
     FlashcardTreeNode(std::string q, std::string a);
     std::string getQuestion();
