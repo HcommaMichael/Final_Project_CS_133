@@ -1,11 +1,11 @@
 #include "FlashcardTreeNode.h"
 
-FlashcardTreeNode::FlashcardTreeNode(std::string q, std::string a) : question(q), answer(a){}
+FlashcardNode::FlashcardNode(std::string q, std::string a) : question(q), answer(a){}
 
-std::string FlashcardTreeNode::getQuestion(){
+std::string FlashcardNode::getQuestion(){
     return question;
 }
 
-std::string FlashcardTreeNode::getAnswer(){
+std::string FlashcardNode::getAnswer(){
     return answer;
 }
