@@ -29,11 +29,19 @@ void Quiz::nodeRandomizer(std::vector<FlashCardLinkedNode*> v) {
 void Quiz::answerRandomizer(std::vector<std::string> a) {
 	std::srand(std::time(0));
 
-	//Fisher-Yates randomizing algorithm (found it online)
 	for (int i = a.size() - 1; i > 0; --i) {
 		int j = std::rand() % (i + 1);
 		std::swap(a[i], a[j]);
 	}
+}
+bool Quiz::vContains(std::string s, int index, std::vector<std::string> v) {
+	if (index == v.size()) {
+		return false;
+	}
+	else if (v[index] == s) {
+		return true;
+	}
+	return vContains(s, index + 1, v);
 }
 void Quiz::startQuiz() {
 	for (int i = 0; i < nodes.size() - 1; i++) {
@@ -42,9 +50,11 @@ void Quiz::startQuiz() {
 		
 		answers.push_back(nodes[i]->answer);
 		
-		for (int j = 0; j < 3; j++) {
-			int index = std::rand() % nodes.size() - 1;
-			answers.push_back(nodes[index]->answer);
+		while(answers.size() != 4) {
+			int index = std::rand() % nodes.size();
+			if (!vContains(nodes[index]->answer, 0, answers)) {
+				answers.push_back(nodes[index]->answer);
+			}
 		}
 
 		answerRandomizer(answers);
@@ -62,6 +72,7 @@ void Quiz::startQuiz() {
 		}
 		else {
 			wrong++;
+			nodes[i]->wrongAmount += 1;
 			std::cout << "Incorrect!" << std::endl << "Right Answers: " << right << std::endl
 				<< "Wrong Answers: " << wrong << std::endl;
 		}
