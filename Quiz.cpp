@@ -6,17 +6,6 @@ Quiz::Quiz(FlashCardLinkedNode* deck) {
 	right = 0;
 	nodes = {};
 }
-void Quiz::insertAndRandomize() {
-	FlashCardLinkedNode* curr = copy;
-	while (curr != nullptr) {
-		FlashCardLinkedNode* temp = curr->next;
-		curr->next = nullptr;
-		nodes.push_back(curr);
-		curr = temp;
-	}
-
-	nodeRandomizer(nodes);
-}
 void Quiz::nodeRandomizer(std::vector<FlashCardLinkedNode*> v) {
 	std::srand(std::time(0));
 
@@ -44,7 +33,7 @@ bool Quiz::vContains(std::string s, int index, std::vector<std::string> v) {
 	return vContains(s, index + 1, v);
 }
 void Quiz::startQuiz() {
-	for (int i = 0; i < nodes.size() - 1; i++) {
+	for (int i = 0; i < nodes.size(); i++) {
 		std::vector<std::string> answers;
 		std::string choice;
 		
@@ -71,6 +60,7 @@ void Quiz::startQuiz() {
 				<< "Wrong Answers: " << wrong << std::endl;
 		}
 		else {
+			nodes[i]->wrongAmount++;
 			wrong++;
 			nodes[i]->wrongAmount += 1;
 			std::cout << "Incorrect!" << std::endl << "Right Answers: " << right << std::endl
