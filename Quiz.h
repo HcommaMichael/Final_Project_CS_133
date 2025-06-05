@@ -18,8 +18,8 @@ public:
 	Quiz(FlashCardLinkedNode* deck);
 	void insertAndRandomize();
 	void startQuiz();
-	void nodeRandomizer(std::vector<FlashCardLinkedNode*> v);
-	void answerRandomizer(std::vector<std::string> a);
+	void nodeRandomizer(std::vector<FlashCardLinkedNode*>& v);
+	void answerRandomizer(std::vector<std::string>& a);
 	bool vContains(std::string s, int index, std::vector<std::string> v);
 };
 
