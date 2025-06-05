@@ -6,6 +6,7 @@
 struct FlashCardLinkedNode {
     std::string question;
     std::string answer;
+    int wrongAmount; 
     FlashCardLinkedNode* next;
     
     FlashCardLinkedNode(std::string question, std::string answer);
