@@ -6,12 +6,14 @@
 
 class Manager{
     private:
-    flashCard* deck;
+    FlashCardLinkedNode* deck;
+    std::string name;
     public:
-    Manager(flashCard* deck);
-    void saveCards(std::ofstream file);
-    void loadCards(std::ifstream file);
-    flashCard* getDeck();
+    Manager(FlashCardLinkedNode* deck, std::string name);
+    void saveCards(std::ofstream& file);
+    void loadCards(std::ifstream& file);
+    FlashCardLinkedNode* getDeck();
+    std::string getName();
 };
 
 
