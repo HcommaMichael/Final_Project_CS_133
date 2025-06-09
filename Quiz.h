@@ -15,12 +15,13 @@ private:
 	int right;
 	std::vector<FlashCardLinkedNode*> nodes;
 public:
+	Quiz();
 	Quiz(FlashCardLinkedNode* deck);
-	void insertAndRandomize();
-	void startQuiz();
-	void nodeRandomizer(std::vector<FlashCardLinkedNode*>& v);
-	void answerRandomizer(std::vector<std::string>& a);
-	bool vContains(std::string s, int index, std::vector<std::string> v);
+	virtual void insertAndRandomize();
+	virtual void startQuiz();
+	virtual void nodeRandomizer(std::vector<FlashCardLinkedNode*>& v);
+	virtual void answerRandomizer(std::vector<std::string>& a);
+	virtual bool vContains(std::string s, int index, std::vector<std::string> v);
 };
 
 
