@@ -76,5 +76,8 @@ void Quiz::startQuiz() {
 				<< "Wrong Answers: " << wrong << std::endl;
 		}
 	}
+	for (int i = 0; i < nodes.size(); i++) {
+		std::cout << "Wrong Amount:" << nodes[i]->wrongAmount << std::endl;
+	}
 	nodes.clear();
 }
