@@ -6,12 +6,18 @@
 struct FlashCardLinkedNode {
     std::string question;
     std::string answer;
-    int wrongAmount; 
+    int wrongAmount;
     FlashCardLinkedNode* next;
     
     FlashCardLinkedNode(std::string question, std::string answer);
 
     FlashCardLinkedNode(std::string question, std::string answer, FlashCardLinkedNode* next);
+};
+
+struct Comparator {
+    bool operator()(FlashCardLinkedNode* n1, FlashCardLinkedNode* n2) {
+        return n1->wrongAmount < n2->wrongAmount;
+    }
 };
 
 
