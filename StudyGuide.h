@@ -2,18 +2,21 @@
 #define STUDY_GUIDE_H
 
 #include "FlashcardLinkedNode.h"
+#include "Quiz.h"
 #include <queue>
 
-class StudyGuide {
+class StudyGuide: public Quiz{
 private:
 	std::priority_queue<FlashCardLinkedNode*, std::vector<FlashCardLinkedNode*>, Comparator> studyPriority;
 	FlashCardLinkedNode* wrongDeck;
+	std::vector<std::string> answerPool;
 public:
 	StudyGuide(FlashCardLinkedNode* deck);
-	void createCopy(FlashCardLinkedNode* deck);
-	void constructorHelper();
+	virtual void createCopy(FlashCardLinkedNode* deck);
+	virtual void constructorHelper();
+	void startQuiz() override;
+	
 };
 
 
 #endif
-
