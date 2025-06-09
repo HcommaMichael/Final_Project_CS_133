@@ -3,6 +3,7 @@
 StudyGuide::StudyGuide(FlashCardLinkedNode* deck) {
 	FlashCardLinkedNode* curr = deck;
 	createCopy(curr);
+	constructorHelper();
 }
 void StudyGuide::createCopy(FlashCardLinkedNode* deck) {
 	if (deck == nullptr) {
