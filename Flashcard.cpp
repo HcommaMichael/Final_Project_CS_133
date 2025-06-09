@@ -13,7 +13,9 @@ FlashCardLinkedNode* flashCard::addCardHelper(FlashCardLinkedNode* curr) {
     }
 }
 void flashCard::addFlashcard(std::string q, std::string a) {
-    if (deck == nullptr) {
+    deck = new FlashCardLinkedNode(q, a, deck);
+
+    /*if (deck == nullptr) {
         deck = new FlashCardLinkedNode(q, a);
     }
     else {
@@ -22,9 +24,9 @@ void flashCard::addFlashcard(std::string q, std::string a) {
         /*while (temp->next != nullptr) {
             temp = temp->next;
         }
-        */
+        
         temp->next = new FlashCardLinkedNode(q, a);
-    }
+    }*/
     size++;
 }
 void flashCard::removeFlashCardHelper(int index, int target, FlashCardLinkedNode* curr) {
@@ -80,7 +82,7 @@ void flashCard::printDeckHelper(FlashCardLinkedNode* curr) {
         return;
     }
 
-    std::cout << curr->answer << " " << curr->answer << std::endl;
+    std::cout << curr->question << " " << curr->answer << std::endl;
     printDeckHelper(curr->next);
 }
 void flashCard::printDeck() {
