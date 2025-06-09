@@ -5,7 +5,11 @@ Quiz::Quiz(FlashCardLinkedNode* deck) {
 	wrong = 0;
 	right = 0;
 	nodes = {};
+
+	insertAndRandomize();
 }
+Quiz::Quiz() {}
+
 void Quiz::insertAndRandomize() {
 	FlashCardLinkedNode* curr = copy;
 
@@ -43,8 +47,8 @@ bool Quiz::vContains(std::string s, int index, std::vector<std::string> v) {
 	return vContains(s, index + 1, v);
 }
 void Quiz::startQuiz() {
+	std::vector<std::string> answers;
 	for (int i = 0; i < nodes.size(); i++) {
-		std::vector<std::string> answers;
 		std::string choice;
 
 		answers.push_back(nodes[i]->answer);
@@ -75,6 +79,7 @@ void Quiz::startQuiz() {
 			std::cout << "Incorrect!" << std::endl << "Right Answers: " << right << std::endl
 				<< "Wrong Answers: " << wrong << std::endl;
 		}
+		answers.clear();
 	}
 	for (int i = 0; i < nodes.size(); i++) {
 		std::cout << "Wrong Amount:" << nodes[i]->wrongAmount << std::endl;
