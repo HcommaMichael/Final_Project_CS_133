@@ -26,20 +26,21 @@ void Manager::loadCards(std::ifstream& file){
     int y;
     FlashCardLinkedNode* temp = deck;
     if(!file){
-        std::cout << "not working";
+        throw "invalid file";
     }
     while(getline(file, line)){
         std::cout << line;
         if(deck == nullptr){
-            x = line.find(" ");
-            y = line.find("A");
-            sub = line.substr(x, y);
+            x = line.find("Q: ");
+            y = line.find("A: ");
+            sub = line.substr(x + 3, y-(x+3));
             sub2 = line.substr(y+3);
             deck = new FlashCardLinkedNode(sub, sub2);
+            temp = deck;
         }else{
-            x = line.find(" ");
-            y = line.find("A");
-            sub = line.substr(x, y);
+            x = line.find("Q: ");
+            y = line.find("A: ");
+            sub = line.substr(x + 3, y-(x+3));
             sub2 = line.substr(y+3);
             temp->next = new FlashCardLinkedNode(sub, sub2);
             temp = temp->next;
