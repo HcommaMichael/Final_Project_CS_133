@@ -9,4 +9,5 @@ FlashCardLinkedNode::FlashCardLinkedNode(std::string question, std::string answe
     this->question = question;
     this->answer = answer;
     this->next = next;
+    this->wrongAmount = 0;
 }
