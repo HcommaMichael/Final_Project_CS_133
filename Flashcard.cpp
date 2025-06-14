@@ -75,13 +75,13 @@ void flashCard::editFlashcard(int index) {
         temp->answer = input;
     }
 }
-void flashCard::printDeckHelper(FlashCardLinkedNode* curr) {
+void flashCard::printDeckHelper(FlashCardLinkedNode* curr, int i) {
     if (curr == nullptr) {
         return;
     }
 
-    std::cout << curr->question << " " << curr->answer << std::endl;
-    printDeckHelper(curr->next);
+    std::court << i << " " << curr->question << " " << curr->answer << std::endl;
+    printDeckHelper(curr->next, i++);
 }
 void flashCard::printDeck() {
     FlashCardLinkedNode* temp = deck;
