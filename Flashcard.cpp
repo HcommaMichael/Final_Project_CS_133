@@ -8,7 +8,7 @@ FlashCardLinkedNode* flashCard::traversalHelper(FlashCardLinkedNode* curr, int i
     if (index == target - 1) { //if the index equals target - 1, then it returns the current node in the linked list
         return curr;
     }
-    else{ //otherwise it will recursively go through the linked list until target - 1 is reached
+    else { //otherwise it will recursively go through the linked list until target - 1 is reached
         return traversalHelper(curr->next, index + 1, target);
     }
 }
@@ -29,7 +29,7 @@ void flashCard::removeFlashCardHelper(int index, int target, FlashCardLinkedNode
 }
 void flashCard::removeFlashcard(int index) {
     FlashCardLinkedNode* temp = deck;
-    
+
     removeFlashCardHelper(0, index, temp); //using the deck and index calls helper function
 
 }
@@ -40,20 +40,20 @@ void flashCard::editFlashcard(int index) {
     std::cout << "Would you like to edit your question (q), answer (a), or both (b) ";
     getline(std::cin, input); //takes in input of whether the user would like to change the question answer or both
     if (tolower(input[0]) == 'q') {
-        std::cout << "What would you like to change about: " << temp->question;
+        std::cout << "What would you like to change about \"" << temp->question << "\"? ";
         getline(std::cin, input); //takes input from user and changes the question
         temp->question = input;
     }
     else if (tolower(input[0]) == 'a') {
-        std::cout << "What would you like to change about: " << temp->answer;
+        std::cout << "What would you like to change about \"" << temp->answer << "\"? ";
         getline(std::cin, input); //takes input from user and changes the answer
         temp->answer = input;
     }
     else if (tolower(input[0]) == 'b') {
-        std::cout << "What would you like to change about: " << temp->question;
+        std::cout << "What would you like to change about \"" << temp->question << "\"? ";
         getline(std::cin, input); //takes input from user and changes the question
         temp->question = input;
-        std::cout << "What would you like to change about: " << temp->answer;
+        std::cout << "What would you like to change about \"" << temp->answer << "\"? ";
         getline(std::cin, input); //takes input from user and changes the answer
         temp->answer = input;
     }
@@ -63,13 +63,13 @@ void flashCard::printDeckHelper(FlashCardLinkedNode* curr, int i) {
         return;
     }
 
-    std::court << i << " " << "Q: " << curr->question << " | A: " << curr->answer;
-    printDeckHelper(curr->next, i++);
+    std::cout << i << ". " << "Q: " << curr->question << " | A: " << curr->answer << std::endl;
+    printDeckHelper(curr->next, i += 1);
 }
 void flashCard::printDeck() {
     FlashCardLinkedNode* temp = deck;
 
-    printDeckHelper(temp);
+    printDeckHelper(temp, 1);
 }
 
 int flashCard::getSize() {
