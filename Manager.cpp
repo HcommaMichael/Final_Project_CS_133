@@ -45,6 +45,7 @@ void Manager::loadCards(std::ifstream& file){
             temp->next = new FlashCardLinkedNode(sub, sub2);
             temp = temp->next;
         }
+        size++;
     }
     file.close();
 }
@@ -54,4 +55,8 @@ FlashCardLinkedNode* Manager::getDeck(){
 
 std::string Manager::getName(){
     return name;
+}
+
+int Manager::getSize(){
+    return size;
 }
