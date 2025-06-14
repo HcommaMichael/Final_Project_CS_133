@@ -20,6 +20,7 @@ class flashCard{
     void changeDeck(FlashCardLinkedNode* deck);
     std::string getName();
     std::string changeName(std::string name);
+    int changeSize(int size);
 };
 
 

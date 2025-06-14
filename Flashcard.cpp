@@ -76,3 +76,7 @@ std::string flashCard::getName(){
 std::string flashCard::changeName(std::string name){
     this->name = name;
 }
+
+int flashCard::changeSize(int size){
+    return size;
+}

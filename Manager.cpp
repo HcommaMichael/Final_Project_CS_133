@@ -29,7 +29,6 @@ void Manager::loadCards(std::ifstream& file){
         throw "invalid file";
     }
     while(getline(file, line)){
-        std::cout << line;
         if(deck == nullptr){
             x = line.find("Q: ");
             y = line.find("A: ");
