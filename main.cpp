@@ -44,15 +44,15 @@ int main() {
         deck = new flashCard(name);
     }
     else {
-        // Invalid input
+        // if input is not l or n then throws string exception below
         throw "input must be l or n";
     }
-    // Main loop continues until decide to quit
+    // Main loop continues until user decides to quit
     while (!quit) {
         std::string question;
         std::string answer;
         deck->printDeck();
-        // Display the menu and let the user to choose
+        // Display the menu and let the user choose what they want to do with the flashcards
         input = getUserInput("Add (a), edit (e), delete (d) flashcard, get quizzed (q), save (s) or terminate (t) ");
         if (tolower(input[0]) == 'a') {
             // Add a new flashcard
@@ -73,14 +73,14 @@ int main() {
             deck->removeFlashcard(stoi(index));
         }
         else if (tolower(input[0]) == 'q') {
-            // Srat a quiz mode need atleast 4 flashcards
-            if (deck->getSize() < 4) {
+            //Start a quiz mode need atleast 4 flashcards
+            if (deck->getSize() < 4) { //if deck is under 4 flashcards throws string exception
                 throw "deck size must be larger than or equal to 4";
             }
             else {
                 Quiz* quiz = new Quiz(deck->getDeck());
                 quiz->startQuiz();
-                // Offer to user option to do the quiz again
+                // Offer to user option to do the quiz again with questions they missed
                 input = getUserInput("Would you like to requiz yes (y) or no (n): ");
                 if (tolower(input[0]) == 'y') {
                     StudyGuide* guide = new StudyGuide(deck->getDeck());
