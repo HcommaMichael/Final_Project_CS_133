@@ -10,11 +10,12 @@
 
 class Quiz {
 private:
-	FlashCardLinkedNode* copy;
-	int wrong;
-	int right;
-	std::vector<FlashCardLinkedNode*> nodes;
+	FlashCardLinkedNode* copy; //copy of linked list
+	int wrong; //field to track wrong answer per quiz, different from wrongAmount
+	int right; //field to track right answers per quiz
+	std::vector<FlashCardLinkedNode*> nodes; //vector that holds the nodes to grab questions from
 public:
+	//constructors and member methods, all commented in Quiz.cpp
 	Quiz();
 	Quiz(FlashCardLinkedNode* deck);
 	virtual void insertAndRandomize();
