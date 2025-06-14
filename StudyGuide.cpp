@@ -1,25 +1,32 @@
+//StudyGuid.cpp: similar in many ways to quiz, therefor inherits from the Quiz class
 #include "StudyGuide.h"
 
+//recursive constructor, creates a consumable copy of the deck too ensure all nodes have a wrongAmount value > 1
 StudyGuide::StudyGuide(FlashCardLinkedNode* deck) {
 	FlashCardLinkedNode* curr = deck;
 	createCopy(curr);
 	constructorHelper();
 }
+//creates the deck copy, also pushes all answers into the total answer pool since StudyGuide does not 
+//require a deck size of 4, which can cause issues in the main loop if not handled properly
 void StudyGuide::createCopy(FlashCardLinkedNode* deck) {
 	if (deck == nullptr) {
 		return;
 	}
+	//case for wrongAmount > 1, constructs new node for wrongDeck, the consumable copy
 	else if (deck->wrongAmount >= 1) {
 		answerPool.push_back(deck->answer);
 		wrongDeck = new FlashCardLinkedNode(deck->question, deck->answer, wrongDeck);
 		wrongDeck->wrongAmount = deck->wrongAmount;
 		createCopy(deck->next);
 	}
+	//case for wrongAmount < 1, skips node
 	else {
 		answerPool.push_back(deck->answer);
 		createCopy(deck->next);
 	}
 }
+//recursive constructor helper, assigns front to the consumable copy, severs each link and places singular nodes in the PQ
 void StudyGuide::constructorHelper() {
 	if (wrongDeck == nullptr) {
 		return;
@@ -31,6 +38,9 @@ void StudyGuide::constructorHelper() {
 	studyPriority.push(front);
 	constructorHelper();
 }
+//almost exactly the same as the startQuiz in Quiz.cpp, needed updating to handle a priority queue
+//does not randomize questions, and runs until the PQ is empty, or the user quits manually
+//the contains and answer randomizing functions are directly inherited from Quiz
 void StudyGuide::startQuiz() {
 	std::srand(std::time(0));
 	std::vector<std::string> answers;
@@ -45,7 +55,7 @@ void StudyGuide::startQuiz() {
 		}
 		answerRandomizer(answers);
 		std::string choice;
-		std::cout << "Pick an answer (1-4) or q to quit" << std::endl;
+		std::cout << "Choose an answer (1-4) or q to quit" << std::endl;
 		std::cout << "Q: " << studyPriority.top()->question << std::endl;
 		std::cout << "------" << std::endl;
 		std::cout << "1. " << answers[0] << std::endl << "2. " << answers[1] << std::endl
