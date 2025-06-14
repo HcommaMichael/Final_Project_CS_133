@@ -15,18 +15,6 @@ FlashCardLinkedNode* flashCard::traversalHelper(FlashCardLinkedNode* curr, int i
 void flashCard::addFlashcard(std::string q, std::string a) {
     deck = new FlashCardLinkedNode(q, a, deck); //adds flash card to front of deck while shifting the rest of the deck back 1
 
-    /*if (deck == nullptr) {
-        deck = new FlashCardLinkedNode(q, a);
-    }
-    else {
-        FlashCardLinkedNode* temp = addCardHelper(deck);
-        //FlashCardLinkedNode* temp = deck;
-        /*while (temp->next != nullptr) {
-            temp = temp->next;
-        }
-        
-        temp->next = new FlashCardLinkedNode(q, a);
-    }*/
     size++; //increments the size of the deck by 1
 }
 void flashCard::removeFlashCardHelper(int index, int target, FlashCardLinkedNode* curr) {
@@ -43,11 +31,6 @@ void flashCard::removeFlashcard(int index) {
     FlashCardLinkedNode* temp = deck;
     
     removeFlashCardHelper(0, index, temp); //using the deck and index calls helper function
-
-    /*for (int i = 0; i < index - 2; i++) {
-        temp = temp->next;
-    }
-    temp = temp->next;*/
 
 }
 void flashCard::editFlashcard(int index) {
