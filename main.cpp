@@ -24,7 +24,7 @@ int main() {
     std::string index;
     flashCard* deck = new flashCard("");
     // Welcome message and load existing or create your deck
-    input = getUserInput("Welcome user to the terrible clone of Quizlet!!!!! \n Would you like to load a deck (l) or create a new deck (n) ");
+    input = getUserInput("Welcome user to the clone of Quizlet!!!!! \nWould you like to load a deck (l) or create a new deck (n) ");
     // Manager to handle loading and saving files
     Manager* mainManager = new Manager(nullptr, "");
     // Manages user's choice
