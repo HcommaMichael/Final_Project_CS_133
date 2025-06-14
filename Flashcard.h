@@ -17,7 +17,7 @@ public:
     void removeFlashCardHelper(int index, int target, FlashCardLinkedNode* curr);
     void editFlashcard(int index);
     void printDeck();
-    void printDeckHelper(FlashCardLinkedNode* curr);
+    void printDeckHelper(FlashCardLinkedNode* curr, int i);
     int getSize();
     FlashCardLinkedNode* getDeck();
     void changeDeck(FlashCardLinkedNode* deck);
