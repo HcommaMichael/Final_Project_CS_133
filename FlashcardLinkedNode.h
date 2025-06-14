@@ -3,10 +3,7 @@
 
 #include <string>
 
-class FlashCardLinkedNode {
-    private:
-
-    public:
+struct FlashCardLinkedNode {
     std::string question;
     std::string answer;
     int wrongAmount;
