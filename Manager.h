@@ -1,15 +1,16 @@
+
 #ifndef _MANAGER_H_
 #define _MANAGER_H_
 
 #include "FlashCard.h"
 #include <fstream>
 
-class Manager{
-    private:
+class Manager {
+private:
     FlashCardLinkedNode* deck;
     std::string name;
     int size = 0;
-    public:
+public:
     Manager(FlashCardLinkedNode* deck, std::string name);
     void saveCards(std::ofstream& file);
     void loadCards(std::ifstream& file);
@@ -20,3 +21,4 @@ class Manager{
 
 
 #endif
+
